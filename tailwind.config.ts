@@ -75,10 +75,23 @@ export default {
 				'subtle-gradient': 'var(--gradient-subtle)',
 				'overlay-gradient': 'var(--gradient-overlay)'
 			},
+			backdropBlur: {
+				'glass': '20px',
+				'glass-strong': '40px'
+			},
+			backgroundColor: {
+				'glass': 'var(--glass-bg)',
+				'glass-dark': 'var(--glass-dark-bg)'
+			},
+			borderColor: {
+				'glass': 'var(--glass-border)',
+				'glass-dark': 'var(--glass-dark-border)'
+			},
 			boxShadow: {
 				soft: 'var(--shadow-soft)',
 				medium: 'var(--shadow-medium)',
-				strong: 'var(--shadow-strong)'
+				strong: 'var(--shadow-strong)',
+				glass: 'var(--shadow-glass)'
 			},
 			fontFamily: {
 				serif: ['Playfair Display', 'serif'],
