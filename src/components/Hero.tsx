@@ -16,17 +16,17 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white pt-20">
-        <GlassCard variant="dark" className="p-12 mb-12">
+        <div className="p-12 mb-12">
           <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
             Transform Your
             <span className="block italic">Body & Mind</span>
           </h1>
-          
+
           <p className="font-sans text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-light leading-relaxed opacity-90">
             Experience the art of movement through personalized Pilates instruction
             in our modern, luxury studio environment.
           </p>
-        </GlassCard>
+        </div>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
           <PilatesButton variant="hero" size="lg" className="hover:scale-110 transition-all duration-500">
