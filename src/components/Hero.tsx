@@ -1,35 +1,34 @@
 import { PilatesButton } from "./ui/pilates-button"
 import { GlassCard } from "./ui/glass-card"
-import heroImage from "@/assets/pilates-hero.jpg"
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-start overflow-hidden pl-6 md:pl-12">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={heroImage} 
-          alt="Modern pilates studio with elegant equipment and natural lighting"
-          className="w-full h-full object-cover scale-105"
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets%2Ff5393289c7ff4db7b88e9d7ae4c07f0e%2Fb720d919609d425e94b7621970f7240b?format=webp&width=800"
+          alt="Pilates studio interior with reformer machines and natural light"
+          className="w-full h-full object-cover scale-125 origin-center"
         />
         <div className="absolute inset-0 bg-overlay-gradient"></div>
       </div>
       
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white pt-20">
-        <GlassCard variant="dark" className="p-12 mb-12">
+      <div className="relative z-10 max-w-4xl px-6 text-center text-white pt-20">
+        <div className="p-12 mb-12 max-w-3xl mx-auto text-center">
           <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
             Transform Your
             <span className="block italic">Body & Mind</span>
           </h1>
-          
+
           <p className="font-sans text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-light leading-relaxed opacity-90">
             Experience the art of movement through personalized Pilates instruction
             in our modern, luxury studio environment.
           </p>
-        </GlassCard>
+        </div>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+        <div className="flex flex-col sm:flex-row gap-6 items-center justify-center mb-16 w-fit mx-auto">
           <PilatesButton variant="hero" size="lg" className="hover:scale-110 transition-all duration-500">
             Start Your Journey
           </PilatesButton>
@@ -55,6 +54,19 @@ const Hero = () => {
           </div>
         </GlassCard>
       </div>
+      <div className="absolute top-1/2 -translate-y-1/2 right-6 md:right-16 z-20 hidden md:flex gap-6 items-start">
+        <div className="w-40 sm:w-56 md:w-64 lg:w-72 -mt-6" style={{ animation: 'float 8s ease-in-out infinite' }}>
+          <div className="rounded-xl overflow-hidden ring-4 ring-white/80 shadow-[0_0_40px_rgba(255,255,255,0.5)]">
+            <video src="https://cdn.builder.io/o/assets%2Ff5393289c7ff4db7b88e9d7ae4c07f0e%2F1750d4263dfd45bda2eb54562768545c?alt=media&token=a330cc32-78e5-40d9-a3bb-e9f65518d453&apiKey=f5393289c7ff4db7b88e9d7ae4c07f0e" autoPlay muted loop playsInline className="w-full h-full object-cover aspect-[3/4]" />
+          </div>
+        </div>
+        <div className="w-40 sm:w-56 md:w-64 lg:w-72 mt-6" style={{ animation: 'float 9s ease-in-out infinite', animationDelay: '1s' }}>
+          <div className="rounded-xl overflow-hidden ring-4 ring-white/80 shadow-[0_0_40px_rgba(255,255,255,0.5)]">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2Ff5393289c7ff4db7b88e9d7ae4c07f0e%2Fb78bcfe79d76438e8eb80cf1bfed97fb?format=webp&width=800" alt="Studio team" className="w-full h-full object-cover aspect-[3/4]" />
+          </div>
+        </div>
+      </div>
+      <style>{`@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }`}</style>
     </section>
   )
 }

@@ -1,81 +1,82 @@
-import { GlassCard } from "./ui/glass-card"
+import { useMemo, useState } from "react"
+import { addDays, format, startOfWeek } from "date-fns"
 import { PilatesButton } from "./ui/pilates-button"
 import classImage from "@/assets/pilates-class.jpg"
 
 const Services = () => {
-  const services = [
-    {
-      title: "Private Sessions",
-      description: "One-on-one personalized training tailored to your specific goals and fitness level.",
-      price: "From $120",
-      features: ["Personalized attention", "Custom workout plans", "Flexible scheduling", "Progress tracking"]
-    },
-    {
-      title: "Group Classes",
-      description: "Small group sessions that combine community energy with expert instruction.",
-      price: "From $45",
-      features: ["Small class sizes", "All levels welcome", "Equipment included", "Community support"]
-    },
-    {
-      title: "Duet Sessions",
-      description: "Semi-private sessions perfect for partners, friends, or family members.",
-      price: "From $85",
-      features: ["Shared experience", "Partner motivation", "Cost effective", "Social engagement"]
-    }
-  ]
+  const [weekOffset, setWeekOffset] = useState(0)
+  const [selected, setSelected] = useState(new Date())
+
+  const weekDays = useMemo(() => {
+    const base = startOfWeek(addDays(new Date(), weekOffset * 7), { weekStartsOn: 0 })
+    return Array.from({ length: 7 }, (_, i) => addDays(base, i))
+  }, [weekOffset])
+
+  const offerings = useMemo(() => {
+    const times = [10, 12, 17, 18]
+    const titles = ["Reformer 1.0", "Strength + Conditioning", "Reformer 1.5", "Reformer 1.5"]
+    const types = ["Pilates", "Weight Training", "Pilates", "Pilates"]
+    const instructors = ["Taylor Abdo", "Maria Riggio", "Sandra Orzol", "Sandra Orzol"]
+    const prices = [35, 25, 35, 35]
+    return times.map((hour, i) => ({
+      id: i,
+      title: titles[i],
+      type: types[i],
+      instructor: instructors[i],
+      datetime: new Date(selected.getFullYear(), selected.getMonth(), selected.getDate(), hour, 0, 0),
+      durationMin: 45,
+      price: prices[i],
+    }))
+  }, [selected])
 
   return (
-    <section id="classes" className="py-32 bg-subtle-gradient relative overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 opacity-5">
-        <img 
-          src={classImage} 
-          alt="Pilates class in session"
-          className="w-full h-full object-cover"
-        />
-      </div>
-      
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-20">
-          <GlassCard className="inline-block p-8 mb-8">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-pilates-black mb-4">
-              Our Services
-            </h2>
-            <p className="font-sans text-xl text-pilates-gray max-w-2xl leading-relaxed">
-              Choose from our range of expertly designed programs, each crafted to meet
-              your unique wellness goals and lifestyle.
-            </p>
-          </GlassCard>
+    <section id="classes" className="py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="mb-8">
+          <div className="flex items-center justify-between border-b pb-4">
+            <button aria-label="Previous week" onClick={() => setWeekOffset((v) => v - 1)} className="px-2 py-1 text-pilates-black/70 hover:text-pilates-black">‹</button>
+            <div className="flex-1 mx-4 grid grid-cols-7 gap-2">
+              {weekDays.map((d) => {
+                const isSelected = format(d, 'yyyy-MM-dd') === format(selected, 'yyyy-MM-dd')
+                return (
+                  <button
+                    key={d.toISOString()}
+                    onClick={() => setSelected(d)}
+                    className={`flex flex-col items-center py-2 rounded-md transition-colors ${isSelected ? 'bg-pilates-black text-white' : 'text-pilates-black hover:bg-pilates-light-gray/40'}`}
+                  >
+                    <span className="text-xs uppercase tracking-wide">{format(d, 'EEE')}</span>
+                    <span className="mt-1 text-sm font-semibold">{format(d, 'd')}</span>
+                  </button>
+                )
+              })}
+            </div>
+            <button aria-label="Next week" onClick={() => setWeekOffset((v) => v + 1)} className="px-2 py-1 text-pilates-black/70 hover:text-pilates-black">›</button>
+          </div>
+          <div className="flex items-center justify-center gap-4 pt-3 text-sm text-pilates-dark-gray">
+            <span>Classes on {format(selected, 'EEEE, MMMM d')}</span>
+          </div>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <GlassCard key={index} className="p-8 hover:scale-105 transition-all duration-500 group">
-              <div className="text-center mb-6">
-                <h3 className="font-serif text-2xl font-semibold text-pilates-black mb-3 group-hover:text-pilates-dark-gray transition-colors">
-                  {service.title}
-                </h3>
-                <div className="text-4xl font-bold text-pilates-black mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {service.price}
-                </div>
-                <p className="text-pilates-gray leading-relaxed">
-                  {service.description}
-                </p>
+
+        <div className="divide-y">
+          {offerings.map((o) => (
+            <div key={o.id} className="py-6 grid grid-cols-1 md:grid-cols-[auto_1fr_auto_auto_auto] gap-6 items-center">
+              <div className="w-full md:w-40 h-24 md:h-20 overflow-hidden rounded-md bg-pilates-light-gray">
+                <img src={classImage} alt="Class preview" className="w-full h-full object-cover" />
               </div>
-              
-              <ul className="space-y-4 mb-8">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-pilates-dark-gray group-hover:text-pilates-black transition-colors">
-                    <div className="w-2 h-2 bg-pilates-black rounded-full mr-4 flex-shrink-0 group-hover:scale-125 transition-transform"></div>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              
-              <PilatesButton variant="outline" className="w-full hover:scale-105">
-                Book Session
-              </PilatesButton>
-            </GlassCard>
+              <div>
+                <div className="text-xs uppercase tracking-widest text-pilates-dark-gray">{o.type}</div>
+                <div className="text-lg md:text-xl font-semibold text-pilates-black">{o.title}</div>
+                <div className="text-sm text-pilates-gray">{o.instructor}</div>
+              </div>
+              <div className="text-right md:text-left">
+                <div className="font-medium text-pilates-black">{format(o.datetime, 'h:mma')} EDT</div>
+                <div className="text-xs text-pilates-gray">({o.durationMin} min)</div>
+              </div>
+              <div className="font-medium text-pilates-black">${o.price.toFixed(2)}</div>
+              <div className="justify-self-end">
+                <PilatesButton size="sm" className="bg-pilates-black text-white hover:bg-pilates-dark-gray">BOOK</PilatesButton>
+              </div>
+            </div>
           ))}
         </div>
       </div>
