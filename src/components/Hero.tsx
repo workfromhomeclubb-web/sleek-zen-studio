@@ -54,7 +54,7 @@ const Hero = () => {
           </div>
         </GlassCard>
       </div>
-      <div className="absolute top-24 right-6 md:right-12 z-20 hidden md:flex gap-6 items-start">
+      <div className="absolute top-36 md:top-44 right-6 md:right-12 z-20 hidden md:flex gap-6 items-start">
         <div className="w-40 sm:w-56 md:w-64 lg:w-72 -mt-6" style={{ animation: 'float 8s ease-in-out infinite' }}>
           <div className="rounded-xl overflow-hidden ring-4 ring-white/80 shadow-[0_0_40px_rgba(255,255,255,0.5)]">
             <video src="https://cdn.builder.io/o/assets%2Ff5393289c7ff4db7b88e9d7ae4c07f0e%2F1750d4263dfd45bda2eb54562768545c?alt=media&token=a330cc32-78e5-40d9-a3bb-e9f65518d453&apiKey=f5393289c7ff4db7b88e9d7ae4c07f0e" autoPlay muted loop playsInline className="w-full h-full object-cover aspect-[3/4]" />
