@@ -6,9 +6,13 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50">
       <GlassCard className="mx-4 mt-4 rounded-2xl">
         <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="font-serif font-bold text-2xl text-pilates-black">
-            Elite Pilates
-          </div>
+          <a href="/" aria-label="Home" className="flex items-center">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2Ff5393289c7ff4db7b88e9d7ae4c07f0e%2Fdbf5b6acfc304c70a52f2217c63529ec?format=webp&width=800"
+              alt="Site logo"
+              className="h-8 w-auto"
+            />
+          </a>
           
           <div className="hidden md:flex items-center space-x-8">
             <a href="#classes" className="text-pilates-gray hover:text-pilates-black transition-all duration-300 font-medium">
