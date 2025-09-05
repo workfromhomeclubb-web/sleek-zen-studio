@@ -15,14 +15,14 @@ const Hero = () => {
       </div>
       
       {/* Content */}
-      <div className="relative z-10 max-w-4xl px-6 text-left text-white pt-20">
-        <div className="p-12 mb-12">
+      <div className="relative z-10 max-w-4xl px-6 text-center text-white pt-20">
+        <div className="p-12 mb-12 max-w-3xl mx-auto text-center">
           <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
             Transform Your
             <span className="block italic">Body & Mind</span>
           </h1>
 
-          <p className="font-sans text-xl md:text-2xl mb-8 max-w-2xl font-light leading-relaxed opacity-90">
+          <p className="font-sans text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-light leading-relaxed opacity-90">
             Experience the art of movement through personalized Pilates instruction
             in our modern, luxury studio environment.
           </p>
