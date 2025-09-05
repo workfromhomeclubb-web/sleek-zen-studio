@@ -3,7 +3,7 @@ import { GlassCard } from "./ui/glass-card"
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-start overflow-hidden pl-6 md:pl-12">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
@@ -15,20 +15,20 @@ const Hero = () => {
       </div>
       
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white pt-20">
+      <div className="relative z-10 max-w-4xl px-6 text-left text-white pt-20">
         <div className="p-12 mb-12">
           <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
             Transform Your
             <span className="block italic">Body & Mind</span>
           </h1>
 
-          <p className="font-sans text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-light leading-relaxed opacity-90">
+          <p className="font-sans text-xl md:text-2xl mb-8 max-w-2xl font-light leading-relaxed opacity-90">
             Experience the art of movement through personalized Pilates instruction
             in our modern, luxury studio environment.
           </p>
         </div>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+        <div className="flex flex-col sm:flex-row gap-6 justify-start items-start mb-16">
           <PilatesButton variant="hero" size="lg" className="hover:scale-110 transition-all duration-500">
             Start Your Journey
           </PilatesButton>
