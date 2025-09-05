@@ -54,6 +54,19 @@ const Hero = () => {
           </div>
         </GlassCard>
       </div>
+      <div className="absolute top-24 right-6 md:right-12 z-20 hidden md:flex gap-6 items-start">
+        <div className="w-40 sm:w-56 md:w-64 lg:w-72 -mt-6" style={{ animation: 'float 8s ease-in-out infinite' }}>
+          <div className="rounded-xl overflow-hidden ring-4 ring-white/80 shadow-[0_0_40px_rgba(255,255,255,0.5)]">
+            <video src="https://cdn.builder.io/o/assets%2Ff5393289c7ff4db7b88e9d7ae4c07f0e%2F1750d4263dfd45bda2eb54562768545c?alt=media&token=a330cc32-78e5-40d9-a3bb-e9f65518d453&apiKey=f5393289c7ff4db7b88e9d7ae4c07f0e" autoPlay muted loop playsInline className="w-full h-full object-cover aspect-[3/4]" />
+          </div>
+        </div>
+        <div className="w-40 sm:w-56 md:w-64 lg:w-72 mt-6" style={{ animation: 'float 9s ease-in-out infinite', animationDelay: '1s' }}>
+          <div className="rounded-xl overflow-hidden ring-4 ring-white/80 shadow-[0_0_40px_rgba(255,255,255,0.5)]">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2Ff5393289c7ff4db7b88e9d7ae4c07f0e%2Fb78bcfe79d76438e8eb80cf1bfed97fb?format=webp&width=800" alt="Studio team" className="w-full h-full object-cover aspect-[3/4]" />
+          </div>
+        </div>
+      </div>
+      <style>{`@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }`}</style>
     </section>
   )
 }
