@@ -61,7 +61,32 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				pilates: {
+					black: 'hsl(var(--pilates-black))',
+					'dark-gray': 'hsl(var(--pilates-dark-gray))',
+					gray: 'hsl(var(--pilates-gray))',
+					'light-gray': 'hsl(var(--pilates-light-gray))',
+					white: 'hsl(var(--pilates-white))'
 				}
+			},
+			backgroundImage: {
+				'hero-gradient': 'var(--gradient-hero)',
+				'subtle-gradient': 'var(--gradient-subtle)',
+				'overlay-gradient': 'var(--gradient-overlay)'
+			},
+			boxShadow: {
+				soft: 'var(--shadow-soft)',
+				medium: 'var(--shadow-medium)',
+				strong: 'var(--shadow-strong)'
+			},
+			fontFamily: {
+				serif: ['Playfair Display', 'serif'],
+				sans: ['Inter', 'system-ui', 'sans-serif']
+			},
+			transitionProperty: {
+				smooth: 'var(--transition-smooth)',
+				fast: 'var(--transition-fast)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
