@@ -1,16 +1,15 @@
 import { PilatesButton } from "./ui/pilates-button"
 import { GlassCard } from "./ui/glass-card"
-import heroImage from "@/assets/pilates-hero.jpg"
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={heroImage} 
-          alt="Modern pilates studio with elegant equipment and natural lighting"
-          className="w-full h-full object-cover scale-105"
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets%2Ff5393289c7ff4db7b88e9d7ae4c07f0e%2Fb720d919609d425e94b7621970f7240b?format=webp&width=800"
+          alt="Pilates studio interior with reformer machines and natural light"
+          className="w-full h-full object-cover scale-125 origin-center"
         />
         <div className="absolute inset-0 bg-overlay-gradient"></div>
       </div>
