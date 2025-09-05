@@ -15,21 +15,21 @@ const Header = () => {
           </a>
           
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#classes" className="text-pilates-gray hover:text-pilates-black transition-all duration-300 font-medium">
+            <a href="#classes" className="text-white hover:text-white transition-all duration-300 font-medium">
               Classes
             </a>
-            <a href="#about" className="text-pilates-gray hover:text-pilates-black transition-all duration-300 font-medium">
+            <a href="#about" className="text-white hover:text-white transition-all duration-300 font-medium">
               About
             </a>
-            <a href="#instructors" className="text-pilates-gray hover:text-pilates-black transition-all duration-300 font-medium">
+            <a href="#instructors" className="text-white hover:text-white transition-all duration-300 font-medium">
               Instructors
             </a>
-            <a href="#contact" className="text-pilates-gray hover:text-pilates-black transition-all duration-300 font-medium">
+            <a href="#contact" className="text-white hover:text-white transition-all duration-300 font-medium">
               Contact
             </a>
           </div>
           
-          <PilatesButton variant="outline" size="sm">
+          <PilatesButton variant="outline" size="sm" className="bg-white text-pilates-black border-white hover:bg-white hover:text-pilates-black">
             Book Now
           </PilatesButton>
         </nav>
