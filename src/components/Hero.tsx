@@ -28,7 +28,7 @@ const Hero = () => {
           </p>
         </div>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-start items-start mb-16">
+        <div className="flex flex-col sm:flex-row gap-6 items-center justify-center mb-16 w-fit mx-auto">
           <PilatesButton variant="hero" size="lg" className="hover:scale-110 transition-all duration-500">
             Start Your Journey
           </PilatesButton>
